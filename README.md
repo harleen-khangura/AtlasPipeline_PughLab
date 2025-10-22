@@ -1,0 +1,8 @@
+# ControlledAtlasPipeline_Fall2024
+
+The goal of this pipeline is to work with the Atlas database samples through a controlled analysis process that is able to call peaks for each sample and identify transcription factor motifs in comparison against a negative IgG antibody control.
+
+Two pipelines were generated; the first of which being the main data analysis method which detected the transcription factor peaks, primary motif patterns and the location of these nucleotide sequences within the genome using ChexMix, MEME suite and FIMO computational tools.
+The output of this pipeline is a folder titled “SampleId,SampleTF_memeresults” and contains a fasta file with the peak locations identified through ChexMix, the motif identification results from MEME, as well as the genomic coordinates of these motifs from FIMO. To use this pipeline, run the shell script in the CLI which will prompt an entry of the email and API key associated with a PEGR account, as well as the sample IDs and their respective TFs listed in order.
+
+The second pipeline is used for the generation of figures visually representing the peak calling and motif results identified in the previous step. The output of this pipeline is a folder titled “SampleId,SampleTF_motifvisualizations” containing separate GFF files with the nucleotide locations of the top three motifs identified, as well as a four colour plot, sense and antisense strand tag pileups, the corresponding composite plots, and a merged forward and reverse heatmap for each of the three prominent motifs identified by the MEME program. The input of this pipeline is the same as the previous pipeline, minus the PEGR account information.
